@@ -4,7 +4,6 @@ public class Calculator {
     private final static Calculator instance = new Calculator();
     private int firstNumber = 0;
     private int secondNumber = 0;
-    private int result = 0;
 
     private Calculator() {
 
@@ -20,10 +19,6 @@ public class Calculator {
 
     public void setSecondNumber(int secondNumber) {
         this.secondNumber = secondNumber;
-    }
-
-    public int getResult() {
-        return result;
     }
 
     public int add() {

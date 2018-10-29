@@ -9,7 +9,6 @@ public class Controller {
     boolean isTypingFirstNumber = true;
     String promptFirstNumber = "";
     String promptSecondNumber = "";
-
     @FXML
     Label label_result;
 
@@ -45,7 +44,7 @@ public class Controller {
         return operation != null;
     }
 
-    private int callCalculator() {
+    private int callCalculatorAction() {
         switch(operation) {
             case ADD:
                 return calculator.add();
@@ -75,14 +74,32 @@ public class Controller {
 
     }
 
-    public void clickButtonSeven() {
-        promptNumberToRightNumber(7);
+    public void clickButtonMultiply() {
+        operation = Operations.MULTIPLY;
+        switchToSecondNumber();
+    }
+
+    public void clickButtonDive() {
+        operation = Operations.DIVIDE;
+        switchToSecondNumber();
+    }
+
+    public void clickButtonZero() {
+        promptNumberToRightNumber(0);
+    }
+
+    public void clickButtonOne() {
+        promptNumberToRightNumber(1);
 
     }
 
-    public void clickButtonEight() {
-        promptNumberToRightNumber(8);
+    public void clickButtonTwo() {
+        promptNumberToRightNumber(2);
+    }
 
+
+    public void clickButtonThree() {
+        promptNumberToRightNumber(3);
     }
 
     public void clickButtonFour() {
@@ -94,26 +111,19 @@ public class Controller {
         promptNumberToRightNumber(5);
     }
 
-    public void clickButtonOne() {
-        promptNumberToRightNumber(1);
+    public void clickButtonSix() {
+        promptNumberToRightNumber(6);
+    }
+
+    public void clickButtonSeven() {
+        promptNumberToRightNumber(7);
 
     }
 
-    public void clickButtonTwo() {
-        promptNumberToRightNumber(2);
+    public void clickButtonEight() {
+        promptNumberToRightNumber(8);
 
     }
-
-    public void clickButtonMultiply() {
-        operation = Operations.MULTIPLY;
-        switchToSecondNumber();
-    }
-
-    public void clickButtonDive() {
-        operation = Operations.DIVIDE;
-        switchToSecondNumber();
-    }
-
     public void clickButtonNine() {
         promptNumberToRightNumber(9);
     }
@@ -126,29 +136,18 @@ public class Controller {
         operation = null;
     }
 
-    public void clickButtonSix() {
-        promptNumberToRightNumber(6);
-    }
 
     public void clickButtonResult() {
         if (isSecondNumberExist() && isOperationDefined()) {
             calculator.setFirstNumber(Integer.valueOf(promptFirstNumber));
             calculator.setSecondNumber(Integer.valueOf(promptSecondNumber));
+            int result = callCalculatorAction();
+
             isTypingFirstNumber = false;
-            int result = callCalculator();
             promptFirstNumber = String.valueOf(result);
             promptSecondNumber="";
             displayFirstNumber();
         }
     }
-
-    public void clickButtonThree() {
-        promptNumberToRightNumber(3);
-    }
-
-    public void clickButtonZero() {
-        promptNumberToRightNumber(0);
-    }
-
 
 }
